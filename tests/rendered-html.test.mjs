@@ -4,9 +4,18 @@ import test from "node:test";
 async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+  const workerModule = await import(workerUrl.href);
+  const worker = workerModule.default;
+  const fetchHandler =
+    typeof worker === "function"
+      ? worker
+      : typeof worker?.fetch === "function"
+        ? worker.fetch.bind(worker)
+        : null;
 
-  return worker.fetch(
+  assert.ok(fetchHandler, "built worker must expose a fetch handler");
+
+  return fetchHandler(
     new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
