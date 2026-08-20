@@ -34,6 +34,16 @@ export const STAGE_1: StageConfig = {
       speed: 70,
     },
   ],
+  collapseFloorCandidates: [
+    { x: 440, width: 80 },
+    { x: 920, width: 80 },
+    { x: 1_640, width: 80 },
+    { x: 1_760, width: 80 },
+    { x: 2_600, width: 80 },
+  ],
+  overjump: {
+    triggerZone: { x: 2_920, width: 330 },
+  },
   goal: {
     type: "goal",
     x: 3_480,

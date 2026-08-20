@@ -60,5 +60,8 @@ test("server-renders the mini game foundation", async () => {
   assert.match(html, /Space \/ ↑ 점프/);
   assert.match(html, /EXIT에/);
   assert.match(html, /모바일 게임 조작/);
-  assert.doesNotMatch(html, /Score|Lives|Leaderboard|Game Over/i);
+  assert.doesNotMatch(
+    html,
+    /Score|Lives|Leaderboard|Game Over|Collapse Floor|Break Head|Overjump|Shatter/i,
+  );
 });

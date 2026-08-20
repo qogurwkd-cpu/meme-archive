@@ -21,6 +21,12 @@ export type GoalConfig = Rect & {
   label: string;
 };
 
+export type CollapseFloorCandidate = Pick<Rect, "x" | "width">;
+
+export type OverjumpConfig = {
+  triggerZone: Pick<Rect, "x" | "width">;
+};
+
 export type StageConfig = {
   length: number;
   groundY: number;
@@ -29,6 +35,8 @@ export type StageConfig = {
   ground: Platform[];
   platforms: Platform[];
   obstacles: MovingObstacleConfig[];
+  collapseFloorCandidates: CollapseFloorCandidate[];
+  overjump: OverjumpConfig;
   goal: GoalConfig;
 };
 
