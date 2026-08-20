@@ -1,0 +1,23 @@
+export const GAME_CONFIG = {
+  player: {
+    width: 28,
+    height: 38,
+    moveSpeed: 260,
+    groundAcceleration: 1_850,
+    airAcceleration: 1_250,
+    groundFriction: 2_100,
+    jumpVelocity: 540,
+    gravity: 1_400,
+    maxFallSpeed: 780,
+    coyoteTime: 0.12,
+    jumpBufferTime: 0.12,
+  },
+  respawnDelay: 450,
+  goalDelay: 520,
+  maxDeltaTime: 1 / 30,
+  cameraOffset: 0.36,
+  cameraSmoothing: 6,
+  minRenderScale: 0.72,
+  maxRenderScale: 1.1,
+  maxDevicePixelRatio: 2,
+} as const;
